@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <a href="#home">
+                <img src="./images/logo.svg" alt="Logo" class="logo">
+            </a>
+        </div>
+        <div class="nav-links-container">
+            <ul class="nav-links">
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>    
+
+    <!-- Banner 區域 -->
+    <section id="home" class="banner">
+        <div class="banner-content">
+            <h2>Sarah's <br>
+            Portfolio</h2>
+            <h5>Designing with soul to create moments that truly connect, infusing every detail with warmth and meaning to bring your vision to life in a way that resonates deeply and personally.</h5>
+            <a href="#portfolio" class="btn">My Portfolio</a>
+        </div>
+    </section>
+
+    <!-- About Me 區域 -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-me">
+                <img src="./images/About-2.jpg" alt="About me">
+            </div>
+            <div class="about-content">
+                <h3>About me</h3>
+                    <p>Hello,我是Sarah,原先服務於金融業,
+                    因為對視覺與設計領域很有興趣,因此想轉職投入設計相關的工作。</p>
+                    <p>自學過平面設計軟體 AI、PS,能製作LOGO、平面文宣、海報、DM、網頁BANNER。</p>
+                    <p>近期參加了前端網頁的課程,我運用了之前平面設計的基礎,進一步學習網站UI設計,與基本的程式語言基礎、網頁切版,期許未來能朝UI設計師的方向發展。</p>
+                <div class="skills">
+                    <h4>Skills:</h4>
+                    <img src="./images/illustrator.svg" alt="Ai">
+                    <img src="./images/photoshop.svg" alt="Ps">
+                    <img src="./images/figma.svg" alt="Figma">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品集 區域 -->
+    <section id="portfolio" class="portfolio-section">
+        <h3>Portfolio</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="./images/cis/signboard.jpg" alt="CIS設計">
+                <h4>CIS企業識別設計</h4>
+            </div>
+            <div class="portfolio-item">
+                <img src="./images/business card/Cafe-card.jpg" alt="名片設計">
+                <h4>名片設計</h4>
+            </div>
+            <div class="portfolio-item">
+                <img src=".//images/cis/windowMockUp.jpg" alt="視覺設計1">
+                <h4>視覺設計</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#"><img src="./images/footer/ig.svg" alt="Instagram"></a>
+                <a href="#"><img src="./images/footer/fb.svg" alt="Facebook"></a>
+                <a href="#"><img src="./images/footer/email.svg" alt="Email"></a>
+            </div>
+        </div>
+        <p>&copy; 2024 Sarah. All Rights Reserved.</p>
+    </footer>
+    <script>
+        const navbar = document.querySelector('.navbar');
+        const bannerSection = document.querySelector('#about');
+
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            navbar.classList.add('navbar-transparent');
+            } else {
+            navbar.classList.remove('navbar-transparent');
+            }
+        });
+        }, { threshold: 0.5 });
+
+        observer.observe(bannerSection);
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

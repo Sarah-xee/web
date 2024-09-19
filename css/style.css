@@ -1,0 +1,604 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@font-face {
+    font-family: Perpetua ;
+    src: url(../webfonts/Perpetua.otf);
+}
+
+/* 重置樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 重置字體 */
+body {
+    font-family:
+        /*西文*/
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+        /*中文*/
+        "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", "sans-serif";
+    font-size: 100%;
+    line-height: 1.5;
+}
+
+/* 重置標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* 重置列表 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 重置圖片 */
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 重置連接 */
+a {
+    display: block;
+    /*將預設inline改為block */
+    text-decoration: none;
+    color: var(--deep);
+    text-decoration: none;
+}
+
+/* 主要內容共用區 */
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+:root {
+    --primary-color: #1f1f1f; /* 主色 */
+    --secondary-color: #2ecc71; /* 次色 */
+    --background-color: #f1f1f1; /* 背景色 */
+    --text-color: #252525; /* 文字顏色 */
+    --accent-color: #e74c3c; /* 點綴色 */
+}
+
+/* 導覽列 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    /* 確保導覽列在其他內容上方 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5rem;
+    /* 導覽列內部左右的間距 */
+    background-color: rgba(0, 0, 0, 0.89);
+    height: 70px;
+    /* 調整導覽列的高度 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* 添加陰影使其浮起效果 */
+    font-family: "Perpetua", "sans-serif";
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+    padding: 0 30px;
+}
+.navbar-transparent {
+    background-color: rgba(255, 255, 255, 0.7); /* 半透明白色 */
+}
+
+.content {
+    height: 200vh; /* 讓頁面有足夠高度可以滾動 */
+    padding-top: 80px; /* 留空間給固定的導覽列 */
+    background-color: lightgray;
+    flex: 1; /* 讓內容填滿除footer外的區域 */
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+/* 調整頁面內容不被導覽列遮擋 */
+body {
+    padding-top: 50px;
+    /* 確保頁面內容不被固定的導覽列覆蓋 */
+}
+
+
+/* Logo 容器樣式 */
+.logo-container {
+    flex: 1;
+    /* 左側對齊 */
+}
+
+.logo {
+    height: 50px;
+    /* 調整 Logo 高度 */
+    width: auto;
+}
+
+/* 導覽按鈕區域 */
+.nav-links-container {
+    flex: 1;
+    /* 右側對齊 */
+    text-align: right;
+}
+
+.nav-links {
+    list-style: none;
+    display: inline-flex;
+    gap: 5rem;
+    /* 調整按鈕間距 */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ccc;
+    /* 滑鼠移到按鈕上的效果 */
+}
+
+body {
+    background-image: url('../images/banner.jpg'); /* 整頁使用的背景圖 */
+    background-attachment: fixed; /* 視差滾動 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-position: 0px 70px;
+    transition: filter 0.5s ease-in-out;
+}
+
+/* 黑白濾鏡 */
+.black-and-white {
+    filter: grayscale(100%);
+}
+
+
+/* Banner 區域 */
+.banner {
+    height: 100vh;
+    /* background: url('../images/banner.jpg') no-repeat center center/cover; */
+    background-position: 0px 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(29, 29, 29);
+    text-align: center;
+    padding-bottom: 270px;
+    /* 添加padding-top來創造與導覽列的距離 */
+}
+
+.banner-content {
+    position: relative;
+    /* 確保可以進行位置調整 */
+    width: 28%;
+    /* 調整區塊的寬度 */
+    height: 85%;
+    margin-left: auto;
+    /* 將區塊向右移動 */
+    margin-right: 11rem;
+    /* 距離右邊框的間距 */
+    margin: 25rem 15rem 0rem auto;
+    padding: 4rem 4rem 8rem 4rem;
+    /* 內部內容的填充 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.253);
+    /* 添加陰影來提升層次感 */
+    border-radius: 8px;
+    /* 讓區塊的邊角變得圓滑 */
+}
+
+
+.banner h2 {
+    font-size: 4.5rem;
+    font-weight: 500;
+    margin-bottom: 15px; /* 控制h1與h5的間距 */
+    line-height: 1.2;
+}
+
+.banner h5 {
+    line-height: 1.8; /* 調整行距 */
+    margin-top: 20px; /* 距離h1的間距 */
+    font-size: 1.3rem;
+    width: 80%;
+    text-align: left;
+}
+
+.banner .btn {
+    font-family: "Cormorant+Garamond","sans-serif";
+    display: inline-block;
+    position: absolute;
+    top: 420px;
+    left: 65px;
+    margin-top: 60px;
+    /* padding: 10px 20px; */
+    padding: 0.5rem 2rem;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 2px;
+}
+
+/* 視差滾動效果 */
+.banner {
+    background-attachment: fixed;
+}
+
+/* About Me 區域 */
+.about-section {
+    height: 100vh;
+    padding: 0rem 0rem;
+    background-color: var(--background-color);
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 90vh;
+    /* 父容器的高度，可以根據需要調整 */
+}
+
+.about-me img {
+    width: 550px;
+    /* 根據需求調整圖片大小 */
+    filter: grayscale(100%);
+    /* 預設為黑白 */
+    transition: filter 0.5s ease;
+    /* 過場效果，讓黑白變彩色更流暢 */
+    border-radius: 20px;
+    /* 讓區塊的邊角變得圓滑 */
+}
+
+.about-me img:hover {
+    filter: grayscale(0%);
+    /* 滑鼠移上去，變回彩色 */
+}
+
+
+.about-content {
+    position: relative;
+    /* 根據需要，可以設置 absolute、relative 等 */
+    left: 0px;
+    /* 調整水平方向位置 */
+    top: 20px;
+    /* 調整垂直方向位置 */
+    width: 440px;
+    /* 控制容器的寬度 */
+    padding: 60px;
+}
+
+/* 控制標題 h3 的樣式和位置 */
+.about-content h3 {
+    text-align: left;
+    /* 標題居中對齊 */
+    color: #333;
+    /* 標題文字顏色 */
+    margin-bottom: 30px;
+    /* 標題與內容之間的間距 */
+}
+.about-content h3 {
+    font-family: "Cormorant+Garamond", "sans-serif";
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 60px;
+    letter-spacing: .1rem;
+}
+
+
+/* 控制段落內容 p 的樣式和位置 */
+.about-content p {
+    /* text-align: justify; */
+    /* 內容文字左右對齊 */
+    color: #252525;
+    /* 內容文字顏色 */
+    font-size: 18px;
+    /* 文字大小 */
+    line-height: 1.8;
+    /* 行高 */
+}
+
+p {
+    margin-bottom: 15px;
+    /* 調整段落之間的距離 */
+}
+
+.skills {
+    display: flex; /* 讓內容水平排列 */
+    justify-content: left; /* 控制水平方向的位置，例如置中 */
+    align-items: center; /* 控制垂直方向的位置 */
+    gap: 5px; /* 控制每個元素之間的距離 */
+    padding: 30px 0px;
+}
+
+.skills h4 {
+    justify-content: left;
+    font-family: "Cormorant+Garamond", "sans-serif";
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 1.6rem;
+    padding-right: 10px;
+    margin-top: 10px;
+}
+
+.skills img {
+    width: 40px;
+    margin-right: 5px;
+}
+
+/* 作品集 區域 */
+.portfolio-section {
+    text-align: center;
+    /* padding: 100px; */
+    padding: 4rem 0;
+    /* background-color: #333; */
+    color: white;
+}
+
+
+.portfolio-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* 控制圖片之間的間距 */
+    padding: 50px 100px; /* 減少兩邊的空白 */
+}
+
+/* .portfolio-item {
+    /* width: 30%; */
+    /* width: 800px; */ /* 統一設定圖片容器的寬度 */
+    /* text-align: center;
+} */
+.portfolio-item {
+    position: relative;
+    text-align: center;
+    margin: 10px;
+    padding-bottom: 40px; /* 為了確保空間足夠顯示白色 bar */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-item img {
+    width: 100%; /* 圖片寬度自動適應容器 */
+    /* height: auto; */
+    height: 400px; /* 統一設定圖片高度 */
+    display: block;/* 確保圖片和 bar 緊密相連 */
+    object-fit: cover; /* 確保圖片不會變形，保持比例 */
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 0; /* 確保圖片和 bar 緊密相連 */
+}
+
+/* 這是白色 bar 的樣式 */ /* 增加背景變暗的效果 */
+.portfolio-item::after {
+    /* content: ''; */
+    display: block;
+    height: 40px; /* 調整 bar 的高度 */
+    background-color: white; /* bar 的顏色 */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    z-index: 1; /* 確保 bar 蓋住圖片底部 */
+    margin: 0; /* 移除 margin 以確保緊密相連 */
+    padding: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* hover 時縮放圖片，並讓黑色背景消失 */
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+.portfolio-item:hover::after {
+    opacity: 0;
+}
+
+.portfolio-section h3 {
+    font-size: 50px;
+    font-weight: 300;
+}
+
+.portfolio-item p {
+    margin-top: 10px;
+}
+/* 文字顯示在白色 bar 上 */
+.portfolio-item h4 {
+    position: relative;
+    /* bottom: 5px; */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; /* 確保文字在 bar 上方 */
+    font-size: 24px;
+    margin: 0; /* 移除 margin 讓文字更靠近 bar */
+    letter-spacing: .08rem;
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+    padding: 15px;
+    color: var(--text-color);
+}
+
+/* 滾動到作品集時圖片變黑白效果 */
+.portfolio-section {
+    background-color: #6f6f6fdc;
+    /* filter: grayscale(100%); */
+}
+
+.portfolio-item img {
+    filter: grayscale(70%);
+}
+
+.portfolio-item img:hover {
+    filter: none;
+}
+
+
+
+/* Footer */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%; /* 讓<footer>佔滿視窗的寬度 */
+    height: 100vh;
+    text-align: center;
+    background-color: #000;
+    color: white;
+}
+
+.footer-content {
+    /* width: 100%;
+    height: auto; */
+    display: flex;
+    justify-content: space-between; /* 讓內容分散在容器的兩側 */
+    align-items: center; /* 垂直置中對齊 */
+    padding: 30px 80px 10px;
+    /* max-width: 1200px;
+    margin: 20px auto;
+    margin-bottom: 60px;
+    flex-direction: column; */
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* 讓連結橫向排列 */
+    gap: 20px; /* 連結之間的間距 */
+    gap: 2rem;
+    font-family: "Cormorant+Garamond","sans-serif";
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+}
+
+/* .footer-links li {
+    display: inline;
+} */
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-links li a:hover {
+    color: #d7d7d7ea; /* 滑鼠懸停時變淡 */
+}
+
+.social-icons{
+    display: flex; /* 讓 icon 橫向排列 */
+    gap: 30px; /* icon 之間的間距 */
+}
+
+.social-icons a img {
+    width: 24px; /* 設定 icon 的寬度 */
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover img {
+    opacity: 0.7; /* 滑鼠懸停時透明度改變 */
+}
+
+/* .social-icons a {
+    margin-left: 1rem;
+}
+
+.social-icons img {
+    width: 30px;
+    flex-direction:column
+} */
+
+
+/* 頁腳文字 */
+footer p {
+    /* margin-top: 0.5rem; */
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+h2 {
+    font-family: "Cormorant SC", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 60px;
+    text-align: left;
+}
+
+h3 {
+    font-family: "Cormorant+Garamond", "Noto+Sans+TC", "sans-serif";
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 60px;
+}
+
+h4 {
+    font-family: "Cormorant+Garamond","sans-serif";
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+h5 {
+    font-family: "Cormorant+Garamond","sans-serif";
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+p {
+    font-family: "Noto+Sans+TC","sans-serif";
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: left;
+}
+
+
+/* i Wish Cafe */
+/* 針對全局背景圖片的設定 */
+/* body {
+    background-image: url('path-to-your-image.jpg');
+    background-size: cover;
+    background-position: center;
+} */
+
+/* 如果 body 有 class "no-bg"，移除背景圖片 */
+body.no-bg {
+    background-image: none;
+    background-color: #fff; /* 可選的背景顏色，可以根據需要修改 */
+}
